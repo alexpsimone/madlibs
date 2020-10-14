@@ -6,6 +6,13 @@
 <body>
     Hi {{ person }}! I think you're {{ compliment }}!
 
+    <br>Would you like to play a game?
+    <input type="radio" name="yes-or-no" value="yes">
+    <label>Yes</label>
+    <input type="radio" name="yes-or-no" value="no">
+    <label>No</label>
+    
+
     <!-- 1. Modify the template compliment.html to ask the person 
       if they’d like to play a game (hint: try radio buttons). 
       Have this form submit to the URL path /game. This form won’t 
