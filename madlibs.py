@@ -41,10 +41,6 @@ def greet_person():
                            person=player,
                            compliment=compliment)
 
-Make a function called show_madlib_form() and have the URL /game route to it. In this function, get the user’s response to the yes-or-no question on the “would you like to play a game?” form.
-
-If they said no, return a rendered template, goodbye.html, that tells them goodbye and that they’ll be missed (or something else appropriate).
-
 # 2. Make a function called show_madlib_form() and have the URL /game 
 # route to it. In this function, get the user’s response to the yes-or-no 
 # question on the “would you like to play a game?” form.
