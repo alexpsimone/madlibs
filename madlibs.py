@@ -41,6 +41,18 @@ def greet_person():
                            person=player,
                            compliment=compliment)
 
+@app.route('/game')
+def show_madlib_form():
+    """ Play game with user"""
+
+    is_playing = request.args.get("yes-or-no")
+
+    if is_playing == "no":
+        return render_template("goodbye.html")
+    else:
+        return render_template("game.html")
+
+
 # 2. Make a function called show_madlib_form() and have the URL /game 
 # route to it. In this function, get the user’s response to the yes-or-no 
 # question on the “would you like to play a game?” form.
