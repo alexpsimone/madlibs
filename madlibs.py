@@ -52,22 +52,15 @@ def show_madlib_form():
     else:
         return render_template("game.html")
 
+@app.route('/madlib')
+def show_madlib():
+    """Shows you your madlib"""
+    person = request.args.get("person")
+    noun = request.args.get("noun")
+    color = request.args.get("color")
+    adjective = request.args.get("adjective")
 
-# 2. Make a function called show_madlib_form() and have the URL /game 
-# route to it. In this function, get the user’s response to the yes-or-no 
-# question on the “would you like to play a game?” form.
-
-# If they said no, return a rendered template, goodbye.html, that tells them 
-# goodbye and that they’ll be missed (or something else appropriate).
-
-# If they said yes, render a different template, game.html. 
-# The template game.html should have a simple form that asks for a person,
-#  a color, a noun, and an adjective. How you choose to implement those 
-# inputs is up to you, but you should feel free to mix and match. (Hint: it 
-# might be fun to try one as a drop-down menu of choices). This new form 
-# should have the action of /madlib.
-
-
+    return render_template("madlib.html",person=person, noun=noun, color=color, adjective=adjective)
 # 3. Write a new function, show_madlib(), which is routed to by the URL 
 # path /madlib. It should render the template madlib.html, which should fill 
 # the person, color, noun, and adjective provided by the user into a 
