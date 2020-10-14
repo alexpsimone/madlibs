@@ -5,12 +5,16 @@
 </head>
 <body>
     Hi {{ person }}! I think you're {{ compliment }}!
+    <form action="/game">
+      <br>Would you like to play a game?
+      <input type="radio" name="yes-or-no" value="yes">
+      <label>Yes</label>
+      <input type="radio" name="yes-or-no" value="no">
+      <label>No</label>
+      <br>
+      <input type="submit">
+    </form>
 
-    <br>Would you like to play a game?
-    <input type="radio" name="yes-or-no" value="yes">
-    <label>Yes</label>
-    <input type="radio" name="yes-or-no" value="no">
-    <label>No</label>
     
 
     <!-- 1. Modify the template compliment.html to ask the person 
