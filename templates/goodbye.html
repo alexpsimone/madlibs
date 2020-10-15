@@ -1,15 +1,13 @@
 <!-- # If they said no, return a rendered template, goodbye.html, that tells them 
 # goodbye and that they’ll be missed (or something else appropriate). -->
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>womp womp</title>
-</head>
-<body>
-    <form>
-        <h1>Angela is offended. Womp womp. Bye Felicia.</h1>
-    </form>
-        
-</body>
-</html>
+
+{% extends 'base.html' %}
+
+{% block title %}womp womp{% endblock %}
+
+{% block content %}
+
+<h1>Angela is offended. Womp womp. Bye Felicia.</h1>
+
+{% endblock %}
