@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 
-{% block title %}A Complimen{% endblock %}
+{% block title %}A Compliment{% endblock %}
 
 {% block content %}
 
 
-    Hi {{ person }}! I think you're {{ compliment }}!
+    <!-- Hi {{ person }}! I think you're {{ compliment }}! -->
+
+    Hi, {{person }}! I think you're:
+    <ul>
+      {% for compliment in compliments %}
+        <li>{{ compliment }}</li>
+      {% endfor %}
+    </ul>
+
     <form action="/game">
       <br>Would you like to play a game?
       <input type="radio" name="yes-or-no" value="yes">
