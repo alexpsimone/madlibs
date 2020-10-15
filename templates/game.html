@@ -3,24 +3,23 @@
 # inputs is up to you, but you should feel free to mix and match. (Hint: it 
 # might be fun to try one as a drop-down menu of choices). This new form 
 # should have the action of /madlib. -->
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <form action="/madlib">
-        <label>Choose a name: </label>
-        <input type="text" name="person">
-        <br><label>Choose a color: </label>
-        <input type="text" name="color">
-        <br><label>Choose a noun: </label>
-        <input type="text" name="noun">
-        <br><label>Choose an adjective: </label>
-        <input type="text" name="adjective">
-        <br><input type="submit">
-    </form>
-        
-</body>
-</html>
+{% block title %}Game.html{% endblock %}
+
+{% block content %}
+
+<form action="/madlib">
+    <label>Choose a name: </label>
+    <input type="text" name="person">
+    <br><label>Choose a color: </label>
+    <input type="text" name="color">
+    <br><label>Choose a noun: </label>
+    <input type="text" name="noun">
+    <br><label>Choose an adjective: </label>
+    <input type="text" name="adjective">
+    <br><input type="submit">
+</form>
+    
+
+{% endblock %}
