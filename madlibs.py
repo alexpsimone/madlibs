@@ -63,10 +63,13 @@ def show_madlib():
     """Shows you your madlib"""
     person = request.args.get("person")
     noun = request.args.get("noun")
-    color = request.args.get("color")
+    # color = (request.args.get("color"))
     adjective = request.args.get("adjective")
+    list_colors = []
+    list_colors.extend(request.args.get("color"))
 
-    return render_template("madlib.html",person=person, noun=noun, color=color, adjective=adjective)
+    return render_template("madlib.html",person=person, noun=noun, colors = list_colors, adjective=adjective)
+
 # 3. Write a new function, show_madlib(), which is routed to by the URL 
 # path /madlib. It should render the template madlib.html, which should fill 
 # the person, color, noun, and adjective provided by the user into a 

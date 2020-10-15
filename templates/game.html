@@ -10,16 +10,62 @@
 {% block content %}
 
 <form action="/madlib">
-    <label>Choose a name: </label>
-    <input type="text" name="person">
-    <br><label>Choose a color: </label>
-    <input type="text" name="color">
-    <br><label>Choose a noun: </label>
-    <input type="text" name="noun">
-    <br><label>Choose an adjective: </label>
-    <input type="text" name="adjective">
+    <label><strong>Choose a name: </strong></label>
+    <br>
+    <input type="checkbox" name="person" value="eggman">
+    <label>Eggman</label>
+    <input type="checkbox" name="person" value="rufus">
+    <label>Rufus </label>
+    <input type="checkbox" name="person" value="aristotle">
+    <label>Aristotle </label>
+
+    <br>
+    <label><strong>Choose a color: </strong></label>
+    <br>
+    <input type="checkbox" name="color" value="lilac">
+    <label>Lilac</label>
+    <input type="checkbox" name="color" value="chartreuse">
+    <label>Chartruese</label>
+    <input type="checkbox" name="color" value="eggshell">
+    <label>Eggshell</label>
+
+    <br>
+    <label><strong>Choose a noun: </strong></label>
+    <br>
+    <input type="checkbox" name="noun" value="lilpig">
+    <label>lilpig </label>
+    <input type="checkbox" name="noun" value="eggwhites">
+    <label>Eggwhites </label>
+    <input type="checkbox" name="noun" value="kiwibird">
+    <label>kiwibird </label>
+
+    <br>
+    <label><strong>Choose an adjective:</strong></label>
+    <br>
+    <input type="checkbox" name="adjective" value="fluffy">
+    <label>Fluffy </label>
+    <input type="checkbox" name="adjective" value="eggbrained">
+    <label>Eggbrained </label>
+    <input type="checkbox" name="adjective" value="perky">
+    <label>Perky </label>
+
+    
     <br><input type="submit">
 </form>
     
 
 {% endblock %}
+
+<!-- If you modified your inputs above to include checkboxes, 
+    you probably ended up with a list of unknown length which 
+    you then needed to translate into grammatical, well-punctuated 
+    English. (Was the red, or red and white, or red, white, 
+    and blue?) Use a Jinja  block to handle the potential 
+    commas and potential word and. (Hint: you probably need a 
+     in there, also.)
+
+    If you modified greet_person() as described in the previous section, 
+    you can use the same logic you just implemented to modify greet_person() 
+    to pass a list of a random number of compliments, and then handle the 
+    punctuation of said list the same way (instead of displaying the 
+    compliments in an unordered list). -->
