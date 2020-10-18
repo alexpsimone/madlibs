@@ -19,7 +19,7 @@ AWESOMENESS = [
 def start_here():
     """Display homepage."""
 
-    return "Hi! This is the home page."
+    return render_template("hello.html")
 
 
 @app.route('/hello')
@@ -63,10 +63,10 @@ def show_madlib():
     """Shows you your madlib"""
     person = request.args.get("person")
     noun = request.args.get("noun")
-    # color = (request.args.get("color"))
+    color = (request.args.get("color"))
     adjective = request.args.get("adjective")
     list_colors = []
-    list_colors.extend(request.args.get("color"))
+    list_colors.append(request.args.get("color"))
 
     return render_template("madlib.html",person=person, noun=noun, colors = list_colors, adjective=adjective)
 
