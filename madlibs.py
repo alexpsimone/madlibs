@@ -36,16 +36,11 @@ def greet_person():
     player = request.args.get("person")
 
     compliment = sample(AWESOMENESS,3)
-    # if wants_compliments:
-    #     nice_things = sample(COMPLIMENTS, 3)
-    # else:
-    #     nice_things = []
-    # return render_template("compliments.html",
-    #                        compliments=nice_things, name=player)
 
     return render_template("compliment.html",
                            person=player,
                            compliments=compliment)
+
 
 @app.route('/game')
 def show_madlib_form():
@@ -58,22 +53,35 @@ def show_madlib_form():
     else:
         return render_template("game.html")
 
+
 @app.route('/madlib')
 def show_madlib():
     """Shows you your madlib"""
-    person = request.args.get("person")
+    person = [str(request.args.get("person1")), 
+                str(request.args.get("person2")), 
+                str(request.args.get("person3"))]
+    
+    people = []
+    for personX in person:
+        if personX != 'None':
+            people.append(personX)
+    if len(people) > 2:
+        people_out = f"{people[0]}, {people[1]}, and {people[2]}"
+    elif len(people) == 2:
+        people_out = f"{people[0]} and {people[1]}"
+    elif len(people) == 1:
+        people_out = str(people[0])
+
+
     noun = request.args.get("noun")
     color = (request.args.get("color"))
     adjective = request.args.get("adjective")
     list_colors = []
     list_colors.append(request.args.get("color"))
 
-    return render_template("madlib.html",person=person, noun=noun, colors = list_colors, adjective=adjective)
+    print(f"person: {person}, people: {people_out}, noun: {noun}, color: {list_colors}, adj: {adjective}")
 
-# 3. Write a new function, show_madlib(), which is routed to by the URL 
-# path /madlib. It should render the template madlib.html, which should fill 
-# the person, color, noun, and adjective provided by the user into a 
-# MadLibs-style story.
+    return render_template("madlib.html", people_out=people_out, noun=noun, colors = list_colors, adjective=adjective)
 
 
 if __name__ == '__main__':
