@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}success!{% endblock %}
+
+{% block content %}
+
+    <h1>We made it!</h1>
+    <p>    
+        There once was a 
+        <ul>
+            {% for color in colors %}
+            <li>{{ color }}</li>
+            {% endfor %}
+        </ul>
+        
+        {{noun}} sitting in the Hackbright Lab.
+        When {{ person }} went to pick it up, it burst into flames in a totally
+        {{ adjective }} way
+    </p>  
+
+{% endblock %}
