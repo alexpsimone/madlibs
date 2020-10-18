@@ -4,12 +4,8 @@
 
 {% block content %}
 
-    Hi, {{person }}! I think you're:
-    <ul>
-      {% for compliment in compliments %}
-        <li>{{ compliment }}</li>
-      {% endfor %}
-    </ul>
+    <p>Hi, {{person }}! I think you're
+    {{ compliments[0] }}, {{ compliments[1] }}, and {{ compliments[2] }}!</p>
 
     <form action="/game">
       <label><strong>Would you like to play a game?</strong></label>
