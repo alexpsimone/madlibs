@@ -57,6 +57,7 @@ def show_madlib_form():
 @app.route('/madlib')
 def show_madlib():
     """Shows you your madlib"""
+
     person = [str(request.args.get("person1")), 
                 str(request.args.get("person2")), 
                 str(request.args.get("person3"))]
@@ -72,34 +73,31 @@ def show_madlib():
     elif len(people) == 1:
         people_out = str(people[0])
 
-    noun = [str(request.args.get("noun1")), 
-                str(request.args.get("noun2")), 
-                str(request.args.get("noun3"))]
-
-    nouns = []
-    for nounX in noun:
-        if nounX != 'None':
-            nouns.append(nounX)
-    if len(nouns) > 2:
-        nouns_out = f"{nouns[0]}, {nouns[1]}, and {nouns[2]}"
-    elif len(nouns) == 2:
-        nouns_out = f"{nouns[0]} and {nouns[1]}"
-    elif len(nouns) == 1:
-        nouns_out = str(nouns[0])
-    print(nouns_out)
-
-    color = (request.args.get("color"))
-    adjective = request.args.get("adjective")
-    list_colors = []
-    list_colors.append(request.args.get("color"))
+    adjs = [str(request.args.get("adjective1")), 
+            str(request.args.get("adjective2")), 
+            str(request.args.get("adjective3"))]
     
-    print(f"noun={noun},colors={color},adj={adjective},people={people_out}")
+    adjectives = []
+    for adjX in adjs:
+        if adjX != 'None':
+            adjectives.append(adjX)
+    if len(adjectives) > 2:
+        adjs_out = f"{adjectives[0]}, {adjectives[1]}, and {adjectives[2]}"
+    elif len(adjectives) == 2:
+        adjs_out = f"{adjectives[0]} and {adjectives[1]}"
+    elif len(adjectives) == 1:
+        adjs_out = str(adjectives[0])
+
+    noun = request.args.get("noun")
+    color = request.args.get("color")
+    
+    # print(f"noun={noun},colors={color},adj={adjective},people={people_out}")
     
     return render_template("madlib.html", 
                             people_out=people_out, 
-                            nouns_out=nouns_out,
+                            noun=noun,
                             color = color, 
-                            adjective=adjective)
+                            adjs_out=adjs_out)
 
 
 if __name__ == '__main__':
