@@ -72,16 +72,34 @@ def show_madlib():
     elif len(people) == 1:
         people_out = str(people[0])
 
+    noun = [str(request.args.get("noun1")), 
+                str(request.args.get("noun2")), 
+                str(request.args.get("noun3"))]
 
-    noun = request.args.get("noun")
+    nouns = []
+    for nounX in noun:
+        if nounX != 'None':
+            nouns.append(nounX)
+    if len(nouns) > 2:
+        nouns_out = f"{nouns[0]}, {nouns[1]}, and {nouns[2]}"
+    elif len(nouns) == 2:
+        nouns_out = f"{nouns[0]} and {nouns[1]}"
+    elif len(nouns) == 1:
+        nouns_out = str(nouns[0])
+    print(nouns_out)
+
     color = (request.args.get("color"))
     adjective = request.args.get("adjective")
     list_colors = []
     list_colors.append(request.args.get("color"))
-
-    print(f"person: {person}, people: {people_out}, noun: {noun}, color: {list_colors}, adj: {adjective}")
-
-    return render_template("madlib.html", people_out=people_out, noun=noun, colors = list_colors, adjective=adjective)
+    
+    print(f"noun={noun},colors={color},adj={adjective},people={people_out}")
+    
+    return render_template("madlib.html", 
+                            people_out=people_out, 
+                            nouns_out=nouns_out,
+                            color = color, 
+                            adjective=adjective)
 
 
 if __name__ == '__main__':
